@@ -1,9 +1,17 @@
 <template>
-   <h1>Vue JS</h1>
-   <p>Hola mundo</p>
-   <Car />
-   <Plane />
-   <MotorBike />
+   <!--    <h1>Vue JS</h1>
+   <p>Hola mundo</p> -->
+   <div style="display: flex;gap:20px">
+      <div>
+         <Car />
+      </div>
+      <div>
+         <Plane />
+      </div>
+      <div>
+         <MotorBike />
+      </div>
+   </div>
 </template>
 
 <script>
