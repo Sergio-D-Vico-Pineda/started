@@ -4,11 +4,12 @@
    <p>Modelo: {{ model }}</p>
    <p>Color: {{ color[1] }}</p>
    <p>Altitud máxima: {{ height }} €</p>
-   <WheelPlane />
+
+   <Wheel name="avion" num="16" />
 </template>
 
 <script>
-import WheelPlane from './WheelPlane.vue';
+import Wheel from './Wheel.vue';
 
 export default {
    setup() {
@@ -19,6 +20,6 @@ export default {
 
       return { brand, model, color, height };
    },
-   components: { WheelPlane }
+   components: { Wheel }
 };
 </script>

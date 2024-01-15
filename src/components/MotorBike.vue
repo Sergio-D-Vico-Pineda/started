@@ -6,11 +6,11 @@
    <p>Precio: {{ price }} €</p>
    <p>Potencia: {{ power }} CV</p>
    
-   <WheelMb />
+   <Wheel name="motocicleta" num="2" fem="true" />
 </template>
 
 <script>
-import WheelMb from './WheelMb.vue';
+import Wheel from './Wheel.vue';
 export default {
    setup() {
       const brand = "BMW";
@@ -21,6 +21,6 @@ export default {
 
       return { brand, model, color, price, power };
    },
-   components: { WheelMb }
+   components: { Wheel }
 }
 </script>
