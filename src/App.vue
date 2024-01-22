@@ -1,6 +1,7 @@
 <template>
    <!--    <h1>Vue JS</h1>
    <p>Hola mundo</p> -->
+   <marquee scrollamount="100" behavior="alternate">Hola</marquee>
    <div style="display: flex;gap:20px">
       <div>
          <Car />

@@ -16,6 +16,10 @@
          <li v-else>Carretera: {{ power }} CV</li>
       </template>
    </ul>
+   <p v-if="price > (1000 - proce)" style="color: red;"> No se puede subir más el precio.</p>
+   <button @click="priceUp()" v-if="price < (1000 - proce)">Subir precio {{ proce }}</button>
+   <p v-if="price < proce" style="color: red;"> No se puede bajar más el precio.</p>
+   <button @click="priceDown()" v-if="price > proce">Bajar precio {{ proce }}</button>
    <p>{{ mensaje.title }} - {{ mensaje.text }}</p>
 
    <Wheel name="coche" num="4" />
@@ -23,19 +27,34 @@
 
 <script>
 import Wheel from './Wheel.vue';
+import { ref } from "vue";
 
 export default {
    setup() {
       const brand = "BMW";
       const model = "X5";
       const colors = ["Red", "Blue", "Green"];
-      const price = 243252;
+      let price = ref(499);
+      let proce = ref(100);
       const powers = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
       const mensaje = {
          title: "Das Auto",
          text: "Wolksvagen"
       };
-      return { brand, model, colors, price, powers, mensaje };
+
+      function priceUp() {
+         console.log("Subiendo precio...")
+         price.value += 100;
+      };
+
+      function priceDown() {
+         console.log("Bajando precio...")
+         if (price.value > proce.value) {
+            price.value -= proce.value;
+         }
+      };
+
+      return { brand, model, colors, price, proce, powers, mensaje, priceUp, priceDown };
    },
    components: { Wheel }
 };
