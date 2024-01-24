@@ -1,5 +1,6 @@
 <template>
    <h1 style="color: blue;">Escribiendo Coche desde Car.vue</h1>
+   <button @click="printMsg(msg)">Print</button>
    <p>Marca: {{ brand }}</p>
    <p>Modelo: {{ model }}</p>
    <p>Colores:
@@ -8,7 +9,7 @@
       </span>
    </p>
    <p>Precio: {{ price }} €</p>
-   <p>Potencia urbanas menor a 450 CV</p>
+   <p>Potencias:</p>
    <ul>
       <template v-for="(power, index) in powers" :key="index">
          <li v-if="power < 450">Urbana: {{ power }} CV</li>
@@ -22,7 +23,7 @@
    <button @click="priceDown()" v-if="price > proce">Bajar precio {{ proce }}</button>
    <p>{{ mensaje.title }} - {{ mensaje.text }}</p>
 
-   <Wheel name="coche" num="4" />
+   <Wheel name="coche" :num=4 :printMsg="printMsg" />
 </template>
 
 <script>
@@ -30,7 +31,12 @@ import Wheel from './Wheel.vue';
 import { ref } from "vue";
 
 export default {
+   props:
+   {
+      printMsg: Function
+   },
    setup() {
+      const msg = "Car.vue";
       const brand = "BMW";
       const model = "X5";
       const colors = ["Red", "Blue", "Green"];
@@ -54,7 +60,7 @@ export default {
          }
       };
 
-      return { brand, model, colors, price, proce, powers, mensaje, priceUp, priceDown };
+      return { brand, model, colors, price, proce, powers, mensaje, priceUp, priceDown, msg };
    },
    components: { Wheel }
 };
