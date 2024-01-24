@@ -1,16 +1,18 @@
 <template>
    <!--    <h1>Vue JS</h1>
    <p>Hola mundo</p> -->
-   <marquee scrollamount="100" behavior="alternate">Hola</marquee>
+   <marquee>
+      <button @click="printMsg(msg)">Hazme click y mira la consola</button>
+   </marquee>
    <div style="display: flex;gap:20px">
       <div>
-         <Car />
+         <Car :printMsg="printMsg" />
       </div>
       <div>
-         <Plane />
+         <Plane :printMsg="printMsg" />
       </div>
       <div>
-         <MotorBike />
+         <MotorBike :printMsg="printMsg" />
       </div>
    </div>
 </template>
@@ -21,6 +23,15 @@ import Plane from './components/Plane.vue';
 import MotorBike from './components/MotorBike.vue';
 
 export default {
+   setup() {
+      let msg = "App.vue";
+      let printMsg = (msg) => {
+         console.log("Este mensaje se ha ejecutado en", msg);
+      };
+
+      return { msg, printMsg };
+   },
+
    components: {
       Car,
       Plane,
