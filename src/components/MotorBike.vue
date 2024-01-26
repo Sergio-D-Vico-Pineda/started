@@ -1,21 +1,23 @@
 <template>
-   <h1 style="color: red;">Escribiendo Motocicleta desde MotorBike.vue</h1>
-   <button @click="printMsg(msg)">Print</button>
-   <p>Marca: {{ brand }}</p>
-   <p>Modelo: {{ model }}</p>
-   <p>Color: {{ color[1] }}</p>
-   <p>Precio: {{ price }} €</p>
-   <p>Potencia: {{ power }} CV:
-      <span v-if="power < 200">Urbana</span>
-      <span v-else-if="power < 300">Híbrido</span>
-      <span v-else>Carretera</span>
-   </p>
-   <p v-if="power >= (400 - cant)" style="color: red;"> No se puede subir más la potencia.</p>
-   <button @click="priceUp()" v-if="power < (400 - cant)">Subir potencia {{ cant }}</button>
-   <p v-if="power <= cant" style="color: red;"> No se puede bajar más la potencia.</p>
-   <button @click="priceDown()" v-if="power > cant">Bajar potencia {{ cant }}</button>
+   <div class="container">
+      <h1 class="title">Escribiendo Motocicleta desde MotorBike.vue</h1>
+      <button @click="printMsg(msg)">Print</button>
+      <p>Marca: {{ brand }}</p>
+      <p>Modelo: {{ model }}</p>
+      <p>Color: {{ color[1] }}</p>
+      <p>Precio: {{ price }} €</p>
+      <p>Potencia: {{ power }} CV:
+         <span v-if="power < 200">Urbana</span>
+         <span v-else-if="power < 300">Híbrido</span>
+         <span v-else>Carretera</span>
+      </p>
+      <p v-if="power >= (400 - cant)" style="color: red;"> No se puede subir más la potencia.</p>
+      <button @click="priceUp()" v-if="power < (400 - cant)">Subir potencia {{ cant }}</button>
+      <p v-if="power <= cant" style="color: red;"> No se puede bajar más la potencia.</p>
+      <button @click="priceDown()" v-if="power > cant">Bajar potencia {{ cant }}</button>
 
-   <Wheel name="motocicleta" :num=2 :fem=true :printMsg="printMsg" />
+      <Wheel name="motocicleta" :num=2 :fem=true :printMsg="printMsg" />
+   </div>
 </template>
 
 <script>
@@ -50,3 +52,12 @@ export default {
    components: { Wheel }
 }
 </script>
+
+<style lang="scss" scoped>
+.container {
+   background-color: rgb(56, 53, 31);
+   .title {
+      color: rgb(27, 162, 36);
+   }
+}
+</style>

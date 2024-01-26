@@ -26,7 +26,7 @@ export default {
    setup() {
       let msg = "App.vue";
       let printMsg = (msg) => {
-         console.log("Este mensaje se ha ejecutado en", msg);
+         alert(`Este mensaje se ha ejecutado en ${msg}`);
       };
 
       return { msg, printMsg };
@@ -41,7 +41,7 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
 * {
    box-sizing: border-box;
 }
@@ -49,6 +49,15 @@ export default {
 body {
    background-color: rgb(30, 28, 28);
    color: white;
+
+   .title {
+      color: white;
+   }
+}
+
+.container {
+   padding: 0px 10px 10px;
+   border-radius: 20px;
 }
 </style>
 
